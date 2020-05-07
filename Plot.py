@@ -4,9 +4,6 @@ Spyder Editor
 
 This is a temporary script file.
 """
-
-"credits"
-
 import math
 import numpy as np
 import matplotlib.pyplot as plt
@@ -60,15 +57,3 @@ Yc = [float(i) for i in yc]
 plt.figure()
 
 plt.plot(Xc, Yc)
-
-# results = open('results.out','a+')
-
-# u = nodeDisp(2,3)
-# if abs(u-0.00190476190476190541)<1e-12:
-#    results.write('PASSED : MomentCurvature.py\n');
-#    print("Passed!")
-# else:
-#    results.write('FAILED : MomentCurvature.py\n');
-#    print("Failed!")
-#
-# results.close()

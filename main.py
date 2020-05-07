@@ -92,9 +92,9 @@ for ALR in iALR:
                 yield_strength_reduction_Transverse = (1 - 0.021 * CL_Transverse_Steel)
                 reduced_yield_Transverse=steel_yield_strength*yield_strength_reduction_Transverse
                 
-                datadir = rootdir + "\\" + "data" + "\\ALR " + str(ALR*100) + "\\" + str(cover) + \
+                datadir = rootdir + "\\" + "data" + "\\ALR_" + str(int(ALR*100)) + "\\" + str(cover) + \
                           "\\" + str(wcr) + "\\" + str(Time)
-
+                          
                 if not os.path.exists(datadir):
                     os.makedirs(datadir)
 

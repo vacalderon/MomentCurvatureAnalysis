@@ -1,3 +1,10 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Apr 22 15:12:06 2019
+
+@author: pchi893
+"""
+
 from openseespy.opensees import *
 import math
 import numpy as np
@@ -116,15 +123,15 @@ def MomentCurvature_RC_Column(dbi, dti, reduced_yield_Longitudinal, dblc, cover,
     #                             tag ndI ndJ  secTag
     element('zeroLengthSection', 1, 1, 2, SecTag1)
 
-    # Create recorder
+    # Create recorders
 
-    recorder('Node', '-file', datadir + '/Mphi.out', '-closeOnWrite', '-time', '-node', 2, '-dof', 3, 'disp')
-    recorder('Element', '-file', datadir + '/SteelStrain.out', '-closeOnWrite', '-time', '-ele', 1, 'section', '1',
+    recorder('Node', '-file', datadir + '/Mphi.out', '-time', '-node', 2, '-dof', 3, 'disp')
+    recorder('Element', '-file', datadir + '/SteelStrain.out', '-time', '-ele', 1, 'section', 
              'fiber', str(Rbl) + ', 0.0', 'mat', '3', 'stressStrain')  # Rbl,0, IDreinf
-    recorder('Element', '-file', datadir + '/CConcStrain.out', '-closeOnWrite', '-time', '-ele', 1, 'section', '1',
+    recorder('Element', '-file', datadir + '/CConcStrain.out', '-time', '-ele', 1, 'section', 
              'fiber', str(-Dprime) + ', 0.0', 'mat', '1', 'stressStrain')  # Rbl,0, IDreinf
-    recorder('Element', '-file', datadir + '/UCConcStrain.out', '-closeOnWrite', '-time', '-ele', 1, 'section', '1',
-             'fiber', str(-DCol) + ', 0.0', 'mat', '2', 'stressStrain')
+    recorder('Element', '-file', datadir +'/UCConcStrain.out', '-time', '-ele', 1, 'section', 
+             'fiber', str(-DCol) + '0.0', 'mat', '2', 'stressStrain')
 
     # Estimate yield curvature
     # (Assuming no axial load and only top and bottom steel)
